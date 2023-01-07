@@ -6,3 +6,4 @@ build.sh
 .env
 config/*
 !config/example.yaml
+scripts/env_source.sh
