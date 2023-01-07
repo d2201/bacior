@@ -1,0 +1,28 @@
+<html>
+  <%- include('../partials/head') %>
+  <body>
+    <div class="flex flex-col px-3 py-3 items-start gap-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sheet name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (const sheet of sheets) { %>
+            <tr>
+              <td><%= sheet.name %></td>
+              <td>
+                <form class="mb-0" method="post" action="/spreadsheets/select">
+                  <input type="hidden" name="sheetId" value="<%= sheet.id %>">
+                  <button type="submit" class="btn btn-success btn-sm">Select</button>
+                </form>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

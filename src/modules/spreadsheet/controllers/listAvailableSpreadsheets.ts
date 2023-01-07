@@ -8,25 +8,7 @@ export const listAvailableSpreadsheets: ControllerFunction = async (
 ) => {
   assertUser(req.user)
 
-  const data = await services.listAvailableSpreadsheets()
+  const data = await services.listAvailableSpreadsheets(req.user.authClient)
 
-  res.send(`<html>
-<body>
-  <ul>
-    ${
-      data.files
-        ?.map(
-          (file) =>
-            `<li>${file.name} 
-              <form method="post" action="/spreadsheets/select">
-                <input type="hidden" name="sheetId" value="${file.id}"/>
-                <button type="submit">Wybierz</button>
-              </form>
-            </li>`
-        )
-        .join('') ?? ''
-    }
-  </ul>
-</body>
-</html>`)
+  res.render('spreadsheets/listSheets', { sheets: data.files ?? [] })
 }
