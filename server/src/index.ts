@@ -1,5 +1,5 @@
 import './registerEnv'
-import express, { Request} from 'express'
+import express, { NextFunction, Request, Response} from 'express'
 import { router as authRouter } from './modules/auth'
 import { router as spreadsheetRouter } from './modules/spreadsheet'
 import { connect } from './libs/db/connect'
@@ -31,6 +31,14 @@ Promise.resolve().then(async () => {
   app.use('/spreadsheets', spreadsheetRouter)
   app.get('/', (req: Request, res) => {
     res.render('index', { user: req.user })
+  })
+
+  app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+    if (res.headersSent) {
+      return next(err)
+    }
+
+    res.send(err.message)
   })
 
   app.listen(PORT, () => {
