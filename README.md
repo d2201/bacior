@@ -24,3 +24,7 @@ Thus why following limitations exist:
 - Tool is looking for polish-named headers
 - Tool is only useful for book reading related goals.
 - Tool can not notify anyone other besides the owner & also is vendor-locked on PagerDuty
+
+## Demo
+
+<img src="https://user-images.githubusercontent.com/82345058/211140419-4567d8e5-85a7-4938-b958-d7b61762cc19.gif">
