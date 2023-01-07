@@ -13,8 +13,7 @@ export const getDb = () => {
 
 export const connect = async () => {
   const config = getConfig()
-
-  console.log('connecting on', config.mongo.uri)
+  
   const connection = await MongoClient.connect(config.mongo.uri!)
 
   db = connection.db('bacior')

@@ -6,5 +6,6 @@ export const selectSpreadsheet: ControllerFunction = async (req, res) => {
   assertUser(req.user)
 
   await service.selectSpreadsheet(req.user, req.body.sheetId)
-  res.json({ ok: 1 })
+
+  res.redirect(`https://docs.google.com/spreadsheets/d/${req.body.sheetId}/edit`)
 }

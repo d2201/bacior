@@ -8,17 +8,26 @@ import cookieParser from 'cookie-parser'
 import { Settings } from 'luxon'
 import path from 'path'
 import { setSpreadsheetIndexes } from './modules/spreadsheet/repositories'
+import { createDebugger } from './utils'
+import queue from './utils/queue'
 
 Settings.defaultZone = 'Europe/Warsaw'
+
+const debug = createDebugger('app')
 
 const app = express()
 const PORT = 9001
 
 Promise.resolve().then(async () => {
+  debug('Connecting to database...')
   await connect()
-  console.log('connected to db')
+  debug('Connected to database')
 
+  debug('Setting indexes...')
   await setSpreadsheetIndexes()
+
+  debug('Setting up queue')
+  queue.setupProcessor(500)
 
   app.set('view engine', 'ejs')
   app.set('views', path.join(__dirname, 'views'))

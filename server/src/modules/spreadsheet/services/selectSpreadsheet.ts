@@ -3,6 +3,8 @@ import { GoogleSpreadsheet } from 'google-spreadsheet'
 import * as repository from '../repositories'
 import { initializeTargets } from './initializeTargets'
 import { globalAuth } from '../../../config'
+import queue from '../../../utils/queue'
+import { isDuplicateError } from '../../../libs/db/isDuplicateError'
 
 export const selectSpreadsheet = async (user: AuthUser, sheetId: string) => {
   const sheet = new GoogleSpreadsheet(sheetId)
@@ -11,7 +13,16 @@ export const selectSpreadsheet = async (user: AuthUser, sheetId: string) => {
 
   await sheet.loadInfo()
 
-  await initializeTargets(sheet)
+  try {
+    await repository.insertSpreadsheet({ sheetId, userId: user.me.id })
+  } catch (e) {
+    if (!isDuplicateError(e)) {
+      throw e
+    }
+  }
 
-  await repository.insertSpreadsheet({ sheetId, userId: user.me.id })
+  queue.enqueue({
+    id: `initializeTargets-${sheetId}`,
+    handler: () => initializeTargets(sheet),
+  })
 }

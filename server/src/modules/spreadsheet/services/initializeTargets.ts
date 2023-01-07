@@ -1,10 +1,9 @@
 import { GoogleSpreadsheet, GoogleSpreadsheetRow } from 'google-spreadsheet'
 import { DateTime } from 'luxon'
 import { ProgressRow, Target } from '../types'
-import createDebugger from 'debug'
-import { Pointer } from '../../../utils'
+import { createDebugger, Pointer } from '../../../utils'
 
-const debug = createDebugger('bacior:initialize-targets')
+const debug = createDebugger('initializeTargets')
 
 class DateTimePointer extends Pointer<DateTime> {}
 
