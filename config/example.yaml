@@ -4,3 +4,4 @@ image: "" # To be set
 port: 9001
 configName: "bacior-config"
 host: "example.com"
+botEmail: "test@example.com"

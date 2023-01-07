@@ -15,3 +15,4 @@ data:
   PAGERDUTY_ACCESS_TOKEN: {{ .Values.pagerdutyAccessToken }}
   PAGERDUTY_ROUTING_KEY: {{ .Values.pagerdutyRoutingKey }}
   GOOGLE_APPLICATION_CREDENTIALS: {{ .Values.googleApplicationCredentials }}
+  BOT_EMAIL: {{ .Values.botEmail }}
