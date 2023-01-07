@@ -75,8 +75,8 @@ const resolveNewTargets = (
 }
 
 const rowToTarget = (row: GoogleSpreadsheetRow): Target => ({
-  maxCountPerDay: row.max_liczba_stron_dziennie,
-  count: row.liczba,
+  maxCountPerDay: +row.max_liczba_stron_dziennie,
+  count: +row.liczba,
   name: row.nazwa,
 })
 
