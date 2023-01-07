@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.appName }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appName }}
+    spec:
+      volumes:
+      - name: service-account
+        configMap:
+          name: service-account-key
+      containers:
+      - name: {{ .Values.appName }}
+        image: {{ .Values.image }}
+        resources:
+          limits:
+            memory: "200Mi"
+        ports:
+        - containerPort: {{ .Values.port }}
+        command: ["node"]
+        args: ["dist/index"]
+        volumeMounts:
+        - name: service-account
+          mountPath: /app/key.json
+          subPath: key.json
+        envFrom:
+        - configMapRef:
+            name: {{ .Values.configName }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.appName }}
+spec:
+  selector:
+    app: {{ .Values.appName }}
+  ports:
+  - port: 80
+    targetPort: {{ .Values.port }}

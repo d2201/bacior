@@ -1,0 +1,6 @@
+appName: "bacior"
+namespace: "bacior"
+image: "" # To be set
+port: 9001
+configName: "bacior-config"
+host: "example.com"

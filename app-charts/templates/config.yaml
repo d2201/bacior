@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configName }}
+  namespace: {{ .Values.namespace }}
+data:
+  GOOGLE_OAUTH_CLIENT_ID: {{ .Values.googleOAuthClientId }}
+  GOOGLE_OAUTH_CLIENT_SECRET: {{ .Values.googleOAuthClientSecret }}
+  GOOGLE_OAUTH_REDIRECT_URL: {{ .Values.googleOAuthRedirectUrl }}
+  MONGO_URI: {{ .Values.mongoUri }}
+  HOST_URL: {{ .Values.hostUrl }}
+  {{ if .Values.debugEnabled }}
+  DEBUG: "bacior:*"
+  {{ end }}
+  PAGERDUTY_ACCESS_TOKEN: {{ .Values.pagerdutyAccessToken }}
+  PAGERDUTY_ROUTING_KEY: {{ .Values.pagerdutyRoutingKey }}
+  GOOGLE_APPLICATION_CREDENTIALS: {{ .Values.googleApplicationCredentials }}

@@ -4,3 +4,5 @@ key.json
 charts
 build.sh
 .env
+config/*
+!config/example.yaml

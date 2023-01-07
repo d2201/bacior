@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: process-sheets
+  namespace: {{ .Values.namespace }}
+spec:
+  schedule: "20 14-23 * * *"
+  timeZone: "Europe/Warsaw"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      template:
+        spec:
+          volumes:
+          - name: service-account
+            configMap:
+              name: service-account-key
+          containers:
+          - name: sheet-processor
+            image: {{ .Values.image }}
+            command:
+            - yarn
+            - prod:fn:process
+            volumeMounts:
+            - name: service-account
+              mountPath: /app/key.json
+              subPath: key.json
+            envFrom:
+            - configMapRef:
+                name: {{ .Values.configName }}
+          restartPolicy: Never
