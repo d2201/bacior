@@ -6,6 +6,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
+    "postbuild": "cp -r src/views dist/views",
     "dev": "ts-node src/index",
     "fn:process": "ts-node src/functions/processSheetsAndAlert",
     "prod:fn:process": "node dist/functions/processSheetsAndAlert",
