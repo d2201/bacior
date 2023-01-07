@@ -6,7 +6,9 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
-    "postbuild": "cp -r src/views dist/views",
+    "postbuild": "build-css && cp -r src/views dist/views && cp -r src/assets dist/assets",
+    "build-css": "tailwindcss -i src/styles/main.css -o src/assets/output.css",
+    "watch-css": "yarn build-css --watch",
     "dev": "ts-node src/index",
     "fn:process": "ts-node src/functions/processSheetsAndAlert",
     "prod:fn:process": "node dist/functions/processSheetsAndAlert",
@@ -36,6 +38,7 @@
     "@types/uuid": "^8.3.4",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
+    "tailwindcss": "^3.2.4",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
   }

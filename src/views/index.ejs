@@ -1,8 +1,9 @@
 <html>
+  <%- include('partials/head') %>
   <body>
     <% if (user) { %>
       <p>Go select your spreadsheet</p>
-      <a href="/spreadsheets/">Spreadsheet list</a>
+      <a class="flex" href="/spreadsheets/">Spreadsheet list</a>
     <% } else { %>
       <p>Go to the login page</p>
       <a href="/auth/google-oauth">Login with Google</a>

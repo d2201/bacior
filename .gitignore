@@ -8,3 +8,4 @@ config/*
 !config/example.yaml
 scripts/env_source.sh
 dist
+output.css

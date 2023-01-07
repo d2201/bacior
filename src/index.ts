@@ -42,6 +42,8 @@ Promise.resolve().then(async () => {
     res.render('index', { user: req.user })
   })
 
+  app.use(express.static(path.join(__dirname, 'assets')))
+
   app.use((err: any, req: Request, res: Response, next: NextFunction) => {
     if (res.headersSent) {
       return next(err)
