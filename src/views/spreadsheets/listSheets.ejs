@@ -11,15 +11,25 @@
         </thead>
         <tbody>
           <% for (const sheet of sheets) { %>
-            <tr>
-              <td><%= sheet.name %></td>
-              <td>
+          <tr>
+            <td><%= sheet.name %></td>
+            <td>
+              <div class="flex gap-2 items-center">
                 <form class="mb-0" method="post" action="/spreadsheets/select">
-                  <input type="hidden" name="sheetId" value="<%= sheet.id %>">
-                  <button type="submit" class="btn btn-success btn-sm">Select</button>
+                  <input type="hidden" name="sheetId" value="<%= sheet.id %>" />
+                  <button type="submit" class="btn btn-success btn-sm">
+                    Select
+                  </button>
                 </form>
-              </td>
-            </tr>
+                <a
+                  class="btn btn-info btn-sm"
+                  target="_blank"
+                  href="https://docs.google.com/spreadsheets/d/<%= sheet.id %>/edit"
+                  >View</a
+                >
+              </div>
+            </td>
+          </tr>
           <% } %>
         </tbody>
       </table>
