@@ -1,12 +1,14 @@
 <html>
   <%- include('partials/head') %>
   <body>
-    <% if (user) { %>
-      <p>Go select your spreadsheet</p>
-      <a class="flex" href="/spreadsheets/">Spreadsheet list</a>
-    <% } else { %>
-      <p>Go to the login page</p>
-      <a href="/auth/google-oauth">Login with Google</a>
-    <% } %>
+    <div class="min-h-full flex flex-col justify-center items-center gap-4">
+      <% if (user) { %>
+        <p>Go select your spreadsheet</p>
+        <a class="btn" href="/spreadsheets/">Spreadsheet list</a>
+      <% } else { %>
+        <p>Go to the login page</p>
+        <a href="/auth/google-oauth">Sign with Google</a>
+      <% } %>
+    </div>
   </body>
 </html>
