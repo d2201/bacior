@@ -1,6 +1,6 @@
 import { createGoogleAuthClient } from '../utils'
 import { google } from 'googleapis'
-import { Failure } from '../../utils/failures'
+import { Failure } from '../../../utils/failures'
 import * as repository from '../repositories'
 import { v4 as uuid } from 'uuid'
 

@@ -1,5 +1,5 @@
 import { GoogleAuth } from 'google-auth-library'
-import { SheetsScopeStrategy } from './auth/strategies'
+import { SheetsScopeStrategy } from './modules/auth/strategies'
 
 export const getConfig = () => ({
   app: {

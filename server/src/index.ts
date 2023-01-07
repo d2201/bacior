@@ -1,6 +1,6 @@
 import './registerEnv'
 import express, { Request} from 'express'
-import { router as authRouter } from './auth'
+import { router as authRouter } from './modules/auth'
 import { router as spreadsheetRouter } from './modules/spreadsheet'
 import { connect } from './libs/db/connect'
 import { userMiddleware } from './middlewares'

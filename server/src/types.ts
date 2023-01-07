@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { User } from './auth/types/user'
-import { OAuthClient } from './auth/utils'
+import { User } from './modules/auth/types/user'
+import { OAuthClient } from './modules/auth/utils'
 
 export type ControllerFunction = (req: Request, res: Response) => Promise<void>
 

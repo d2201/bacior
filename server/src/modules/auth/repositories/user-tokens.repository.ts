@@ -1,6 +1,6 @@
-import { getDb } from '../../libs/db/connect'
+import { getDb } from '../../../libs/db/connect'
 import { UserAccessToken } from '../types/user'
-import { NotFoundFailure } from '../../utils/failures'
+import { NotFoundFailure } from '../../../utils/failures'
 
 const collection = () => getDb().collection<UserAccessToken>('user.tokens')
 

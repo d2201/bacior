@@ -1,7 +1,7 @@
 import { User } from '../types/user'
 import * as repository from '../repositories'
 import { createGoogleAuthClient } from '../utils'
-import { AuthUser } from '../../types'
+import { AuthUser } from '../../../types'
 
 export const createAuthUser = async (user: User): Promise<AuthUser> => {
   const oauthToken = await repository.findOauthTokenForUser(user.id)

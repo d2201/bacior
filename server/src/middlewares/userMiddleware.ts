@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
-import { ACCESS_TOKEN_COOKIE } from '../auth/types/user'
-import * as repository from '../auth/repositories'
-import { createAuthUser } from '../auth/services/createAuthUser'
+import { ACCESS_TOKEN_COOKIE } from '../modules/auth/types/user'
+import * as repository from '../modules/auth/repositories'
+import { createAuthUser } from '../modules/auth/services/createAuthUser'
 
 export const userMiddleware = async (
   req: Request,

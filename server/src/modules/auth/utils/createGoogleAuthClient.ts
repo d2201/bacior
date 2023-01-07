@@ -1,7 +1,7 @@
 import { Credentials, OAuth2ClientOptions } from 'google-auth-library'
 import { google } from 'googleapis'
-import { getConfig } from '../../config'
-import { AuthUser } from '../../types'
+import { getConfig } from '../../../config'
+import { AuthUser } from '../../../types'
 
 const config = getConfig()
 

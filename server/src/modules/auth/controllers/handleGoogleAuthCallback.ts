@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
-import { ControllerFunction } from '../../types'
-import { Failure } from '../../utils/failures'
+import { ControllerFunction } from '../../../types'
+import { Failure } from '../../../utils/failures'
 import { signInClientByCode } from '../services'
 import { ACCESS_TOKEN_COOKIE } from '../types/user'
 

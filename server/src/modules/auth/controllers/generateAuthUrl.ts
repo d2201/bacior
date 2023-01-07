@@ -1,4 +1,4 @@
-import { ControllerFunction } from '../../types'
+import { ControllerFunction } from '../../../types'
 import * as services from '../services'
 import { ProfileScopeStrategy } from '../strategies/scope/profileScopeStrategy'
 

@@ -1,7 +1,7 @@
-import { getDb } from '../../libs/db/connect'
+import { getDb } from '../../../libs/db/connect'
 import { UserOauthToken } from '../types/user'
 import { Credentials } from 'google-auth-library'
-import { Failure, NotFoundFailure } from '../../utils/failures'
+import { Failure, NotFoundFailure } from '../../../utils/failures'
 
 const collection = () => getDb().collection<UserOauthToken>('user.oauth-tokens')
 
