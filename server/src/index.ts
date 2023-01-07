@@ -1,11 +1,12 @@
 import './registerEnv'
-import express from 'express'
+import express, { Request} from 'express'
 import { router as authRouter } from './auth'
 import { router as spreadsheetRouter } from './spreadsheet'
 import { connect } from './db/connect'
 import { userMiddleware } from './middlewares'
 import cookieParser from 'cookie-parser'
 import { Settings } from 'luxon'
+import path from 'path'
 
 Settings.defaultZone = 'Europe/Warsaw'
 
@@ -16,13 +17,18 @@ Promise.resolve().then(async () => {
   await connect()
   console.log('connected to db')
 
+  app.set('view engine', 'ejs')
+  app.set('views', path.join(__dirname, 'views'))
+
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
   app.use(cookieParser())
   app.use('/auth', authRouter)
-
   app.use(userMiddleware)
   app.use('/spreadsheets', spreadsheetRouter)
+  app.get('/', (req: Request, res) => {
+    res.render('index', { user: req.user })
+  })
 
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
