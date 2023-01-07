@@ -24,6 +24,6 @@ export const userMiddleware = async (
 
     next()
   } catch (e) {
-    next(e)
+    res.redirect('/auth/google-oauth')
   }
 }
