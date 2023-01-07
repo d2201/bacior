@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
-    "postbuild": "build-css && cp -r src/views dist/views && cp -r src/assets dist/assets",
+    "postbuild": "yarn build-css && cp -r src/views dist/views && cp -r src/assets dist/assets",
     "build-css": "tailwindcss -i src/styles/main.css -o src/assets/output.css",
     "watch-css": "yarn build-css --watch",
     "dev": "ts-node src/index",
