@@ -20,5 +20,5 @@ export const handleGoogleAuthCallback: ControllerFunction = async (
     expires: DateTime.local().plus({ hour: 1 }).toJSDate(),
   })
 
-  res.json({ accessToken })
+  res.redirect('/')
 }
