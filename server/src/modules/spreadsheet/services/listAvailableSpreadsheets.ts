@@ -1,5 +1,5 @@
 import { google } from 'googleapis'
-import { globalAuth } from '../../config'
+import { globalAuth } from '../../../config'
 
 export const listAvailableSpreadsheets = async () => {
   const result = await google.drive('v3').files.list({

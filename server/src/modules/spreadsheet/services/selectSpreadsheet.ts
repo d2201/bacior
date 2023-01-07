@@ -1,8 +1,8 @@
-import { AuthUser } from '../../types'
+import { AuthUser } from '../../../types'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import * as repository from '../repositories'
 import { initializeTargets } from './initializeTargets'
-import { globalAuth } from '../../config'
+import { globalAuth } from '../../../config'
 
 export const selectSpreadsheet = async (user: AuthUser, sheetId: string) => {
   const sheet = new GoogleSpreadsheet(sheetId)

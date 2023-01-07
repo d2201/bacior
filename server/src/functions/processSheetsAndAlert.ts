@@ -3,7 +3,7 @@ import { createAlertWrapper } from 'alert-manager'
 import createDebugger from 'debug'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import { DateTime, Settings } from 'luxon'
-import { fetchAllSpreadsheets } from '../spreadsheet/repositories'
+import { fetchAllSpreadsheets } from '../modules/spreadsheet/repositories'
 import { connect } from '../libs/db/connect'
 import {
   AlertBinding,

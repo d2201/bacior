@@ -1,4 +1,4 @@
-import { getDb } from '../../libs/db/connect'
+import { getDb } from '../../../libs/db/connect'
 import { Spreadsheet } from '../types'
 
 const collection = () => getDb().collection<Spreadsheet>('spreadsheets')

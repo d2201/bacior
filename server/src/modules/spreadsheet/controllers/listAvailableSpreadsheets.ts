@@ -1,5 +1,5 @@
-import { assertUser } from '../../assertions'
-import { ControllerFunction } from '../../types'
+import { assertUser } from '../../../assertions'
+import { ControllerFunction } from '../../../types'
 import * as services from '../services'
 
 export const listAvailableSpreadsheets: ControllerFunction = async (
