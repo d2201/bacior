@@ -1,4 +1,4 @@
-import { getDb } from '../../db/connect'
+import { getDb } from '../../libs/db/connect'
 import { NotFoundFailure } from '../../utils/failures'
 import { User } from '../types/user'
 import { v4 as uuid } from 'uuid'

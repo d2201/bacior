@@ -1,4 +1,4 @@
-import { getDb } from '../../db/connect'
+import { getDb } from '../../libs/db/connect'
 import { UserAccessToken } from '../types/user'
 import { NotFoundFailure } from '../../utils/failures'
 

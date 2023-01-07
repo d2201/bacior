@@ -1,4 +1,4 @@
-import { getDb } from '../../db/connect'
+import { getDb } from '../../libs/db/connect'
 import { UserOauthToken } from '../types/user'
 import { Credentials } from 'google-auth-library'
 import { Failure, NotFoundFailure } from '../../utils/failures'

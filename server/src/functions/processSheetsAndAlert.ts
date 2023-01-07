@@ -4,7 +4,7 @@ import createDebugger from 'debug'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import { DateTime, Settings } from 'luxon'
 import { fetchAllSpreadsheets } from '../spreadsheet/repositories'
-import { connect } from '../db/connect'
+import { connect } from '../libs/db/connect'
 import {
   AlertBinding,
   CreateAlertPayload,

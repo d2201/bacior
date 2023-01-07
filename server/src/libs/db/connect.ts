@@ -1,5 +1,5 @@
 import { MongoClient, Db } from 'mongodb'
-import { getConfig } from '../config'
+import { getConfig } from '../../config'
 
 let db: Db
 
