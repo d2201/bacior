@@ -7,6 +7,7 @@ import { userMiddleware } from './middlewares'
 import cookieParser from 'cookie-parser'
 import { Settings } from 'luxon'
 import path from 'path'
+import { setSpreadsheetIndexes } from './modules/spreadsheet/repositories'
 
 Settings.defaultZone = 'Europe/Warsaw'
 
@@ -16,6 +17,8 @@ const PORT = 9001
 Promise.resolve().then(async () => {
   await connect()
   console.log('connected to db')
+
+  await setSpreadsheetIndexes()
 
   app.set('view engine', 'ejs')
   app.set('views', path.join(__dirname, 'views'))
