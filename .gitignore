@@ -1,0 +1,6 @@
+data
+node_modules
+key.json
+charts
+build.sh
+.env
