@@ -1,0 +1,18 @@
+<html>
+  <%- include('../partials/head') %>
+  <body>
+    <div class="min-h-full flex flex-col justify-center items-center gap-2">
+      <h1>
+        Give editor access to
+        <pre><%= email %></pre>
+        in order to register sheet.
+      </h1>
+      <div class="flex items-center gap-2">
+        <a class="btn btn-outline" href="/spreadsheets/">Back to list</a>
+        <a class="btn btn-info" target="_blank" href="<%= sheetUrl %>"
+          >Go to sheet</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

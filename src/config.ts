@@ -5,6 +5,7 @@ export const getConfig = () => ({
   app: {
     host: process.env.HOST_URL,
     silentAlert: process.env.USE_SILENT_ALERT === 'true',
+    botEmail: process.env.BOT_EMAIL ?? 'test@example.com'
   },
   googleOauth: {
     clientId: process.env.GOOGLE_OAUTH_CLIENT_ID,
